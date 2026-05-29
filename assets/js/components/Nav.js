@@ -3,8 +3,9 @@
  * Depends on CartService for badge count and the event bus for updates.
  */
 
-import { getCount } from '../infrastructure/CartService.js';
-import { on }       from '../infrastructure/events.js';
+import { getCount }  from '../infrastructure/CartService.js';
+import { on }        from '../infrastructure/events.js';
+import { initSearch } from './Search.js';
 
 let _scrollRaf = false;
 
@@ -18,6 +19,8 @@ export function initNav() {
   _initMobileMenu(menuBtn, navOverlay);
   _initScrollShadow(header);
   _initCartBadge();
+  /* Search is mounted here so every page gets it by calling initNav() */
+  initSearch();
 }
 
 function _highlightActiveLink(header) {

@@ -86,4 +86,20 @@ export const CATEGORIES = Object.entries(CATEGORY_META).map(([slug, meta]) => ({
   count: PRODUCTS.filter(p => p.category === slug).length,
 }));
 
+/* ── Search ─────────────────────────────────────────────────────── */
+
+/* Reviewer #1 fix: optional chaining on shortDescription, explicit toLowerCase
+   on category to match lowercased query regardless of catalog data format. */
+export function search(products, query, limit = 8) {
+  if (!query || query.trim().length < 2) return [];
+  const q = query.toLowerCase().trim();
+  return products
+    .filter(p =>
+      p.name.toLowerCase().includes(q)                  ||
+      p.category.toLowerCase().includes(q)              ||
+      p.shortDescription?.toLowerCase().includes(q)
+    )
+    .slice(0, limit);
+}
+
 export { PRODUCTS };
