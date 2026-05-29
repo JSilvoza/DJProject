@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DG Studio product detail.">
+  <title>Product — DG Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="header__logo">DG</a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="shop.html" class="header__nav-link">Shop</a></li>
+          <li><a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a></li>
+          <li><a href="shop.html?filter=sale" class="header__nav-link">Sale</a></li>
+          <li><a href="about.html" class="header__nav-link">About</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="cart.html" class="header__icon-btn header__cart-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="header__cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <a href="shop.html" class="header__nav-link">Shop</a>
+    <a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a>
+    <a href="shop.html?filter=sale" class="header__nav-link">Sale</a>
+    <a href="about.html" class="header__nav-link">About</a>
+    <a href="cart.html" class="header__nav-link" style="margin-top:var(--sp-4)">Cart</a>
+  </div>
+
+  <main class="pdp">
+    <div class="container">
+
+      <!-- Breadcrumb -->
+      <nav class="pdp__breadcrumb" aria-label="Breadcrumb" id="pdpBreadcrumb"></nav>
+
+      <!-- PDP content (rendered by product.js) -->
+      <div id="pdpContent">
+        <div class="pdp__layout">
+
+          <!-- Gallery -->
+          <div class="pdp__gallery">
+            <div class="pdp__thumbs" id="pdpThumbs"></div>
+            <div class="pdp__main-img-wrap">
+              <img src="" alt="" class="pdp__main-img" id="pdpMainImg" style="transition:opacity var(--ease-base)">
+            </div>
+          </div>
+
+          <!-- Info panel -->
+          <div class="pdp__info">
+            <div class="pdp__badges" id="pdpBadges"></div>
+
+            <h1 class="pdp__name" id="pdpName"></h1>
+
+            <div class="pdp__rating" id="pdpRating"></div>
+
+            <div class="pdp__pricing" id="pdpPrice"></div>
+
+            <!-- Color -->
+            <div class="pdp__colors">
+              <div class="pdp__option-label">
+                Color: <span id="selectedColorName"></span>
+              </div>
+              <div class="color-swatches" id="colorSwatches"></div>
+            </div>
+
+            <!-- Size -->
+            <div class="pdp__sizes">
+              <div class="pdp__size-header">
+                <div class="pdp__option-label">Select size</div>
+                <button class="pdp__size-guide" id="sizeGuideBtn">Size guide</button>
+              </div>
+              <div class="size-btns" id="sizeBtns"></div>
+              <p id="sizeError" style="display:none;font-size:var(--text-xs);color:var(--clr-error);margin-top:var(--sp-2)">Please select a size.</p>
+            </div>
+
+            <!-- ATC -->
+            <div class="pdp__atc">
+              <div class="pdp__qty-row">
+                <div class="qty-control">
+                  <button class="qty-btn" id="qtyMinus" aria-label="Decrease quantity">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                  <span class="qty-value" id="qtyValue">1</span>
+                  <button class="qty-btn" id="qtyPlus" aria-label="Increase quantity">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </button>
+                </div>
+                <button class="btn btn-primary pdp__atc-btn" id="atcBtn">
+                  Add to Cart
+                </button>
+                <button class="pdp__wishlist-btn" aria-label="Add to wishlist">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </button>
+              </div>
+              <button class="btn btn-accent pdp__buy-btn" id="buyNowBtn">Buy Now</button>
+            </div>
+
+            <!-- Guarantees -->
+            <div class="pdp__guarantees">
+              <div class="guarantee-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                Free shipping on orders over $150
+              </div>
+              <div class="guarantee-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></svg>
+                30-day free returns
+              </div>
+              <div class="guarantee-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Secure checkout — SSL encrypted
+              </div>
+            </div>
+
+            <!-- Accordion -->
+            <div class="accordion">
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  Description
+                  <span class="accordion-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </span>
+                </button>
+                <div class="accordion-body">
+                  <p id="pdpDescription"></p>
+                </div>
+              </div>
+
+              <div class="accordion-item open">
+                <button class="accordion-trigger">
+                  Details &amp; Materials
+                  <span class="accordion-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </span>
+                </button>
+                <div class="accordion-body">
+                  <ul id="detailsList"></ul>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  Care Instructions
+                  <span class="accordion-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </span>
+                </button>
+                <div class="accordion-body">
+                  <ul id="careList"></ul>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  Shipping &amp; Returns
+                  <span class="accordion-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                  </span>
+                </button>
+                <div class="accordion-body">
+                  <p>Free standard shipping on orders over $150. Express and overnight options available at checkout.</p>
+                  <p style="margin-top:var(--sp-3)">Returns accepted within 30 days of delivery. Items must be unworn, unwashed, and in original packaging. Sale items are final sale.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Related products -->
+        <section style="padding-top:var(--sp-24)" id="relatedSection">
+          <div class="section-header">
+            <div>
+              <p class="section-eyebrow">You may also like</p>
+              <h2 class="heading-lg">Complete the look</h2>
+            </div>
+          </div>
+          <div class="product-grid product-grid--4" id="relatedGrid"></div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- Size Guide Modal -->
+  <div class="modal-overlay" id="sizeGuideModal" role="dialog" aria-modal="true" aria-labelledby="sizeGuideTitle">
+    <div class="modal">
+      <div class="modal__header">
+        <h2 class="modal__title" id="sizeGuideTitle">Size Guide</h2>
+        <button class="modal__close" id="sizeGuideClose" aria-label="Close size guide">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <p style="font-size:var(--text-sm);color:var(--clr-text-secondary);margin-bottom:var(--sp-5)">All measurements in inches. If between sizes, size up.</p>
+      <table class="size-table">
+        <thead>
+          <tr>
+            <th>Size</th>
+            <th>Chest</th>
+            <th>Waist</th>
+            <th>Hips</th>
+            <th>Length</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>XS</td><td>33–35</td><td>26–28</td><td>34–36</td><td>27</td></tr>
+          <tr><td>S</td><td>35–37</td><td>28–30</td><td>36–38</td><td>28</td></tr>
+          <tr><td>M</td><td>38–40</td><td>31–33</td><td>39–41</td><td>29</td></tr>
+          <tr><td>L</td><td>41–43</td><td>34–36</td><td>42–44</td><td>30</td></tr>
+          <tr><td>XL</td><td>44–46</td><td>37–39</td><td>45–47</td><td>31</td></tr>
+          <tr><td>XXL</td><td>47–50</td><td>40–43</td><td>48–51</td><td>32</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:var(--text-xs);color:var(--clr-text-muted);margin-top:var(--sp-4)">DG Studio garments are cut oversized — model wears M at 6'1", 175lbs.</p>
+    </div>
+  </div>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/product.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      DG.ui.initNav();
+      DG.ui.renderFooter();
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About DG Studio — our story, values, and the philosophy behind the clothing.">
+  <title>About — DG Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="header__logo">DG</a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="shop.html" class="header__nav-link">Shop</a></li>
+          <li><a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a></li>
+          <li><a href="shop.html?filter=sale" class="header__nav-link">Sale</a></li>
+          <li><a href="about.html" class="header__nav-link active">About</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="cart.html" class="header__icon-btn header__cart-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="header__cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <a href="shop.html" class="header__nav-link">Shop</a>
+    <a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a>
+    <a href="shop.html?filter=sale" class="header__nav-link">Sale</a>
+    <a href="about.html" class="header__nav-link">About</a>
+    <a href="cart.html" class="header__nav-link" style="margin-top:var(--sp-4)">Cart</a>
+  </div>
+
+  <main>
+    <!-- ── About Hero ─────────────────────────────────────────── -->
+    <section class="about-hero">
+      <div class="container">
+        <div style="max-width:720px;padding-block:var(--sp-20)">
+          <p class="section-eyebrow animate-on-scroll">DG Studio — Founded 2022</p>
+          <h1 class="heading-display animate-on-scroll" style="margin-bottom:var(--sp-8)">
+            Built for wear,<br>not for walls.
+          </h1>
+          <p style="font-size:var(--text-lg);color:var(--clr-text-secondary);line-height:var(--leading-relaxed);max-width:560px" class="animate-on-scroll">
+            DG Studio is a contemporary clothing label that refuses to separate quality from restraint. We believe the best garment is one you reach for every day, not once a season.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Story ──────────────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div class="about-grid">
+          <div>
+            <p class="section-eyebrow animate-on-scroll">The origin</p>
+            <h2 class="heading-xl animate-on-scroll" style="margin-bottom:var(--sp-6)">A wardrobe built on conviction</h2>
+            <div style="display:flex;flex-direction:column;gap:var(--sp-5);color:var(--clr-text-secondary);line-height:var(--leading-relaxed)">
+              <p class="animate-on-scroll">
+                DG Studio started with a simple frustration: great clothing was either unaffordable or disposable. There was nothing in between that lasted long enough to justify caring about it.
+              </p>
+              <p class="animate-on-scroll">
+                We set out to fill that gap — designing pieces engineered for real life. Heavyweight fabrics that soften with wear. Silhouettes that hold their shape. Details that outlast trends.
+              </p>
+              <p class="animate-on-scroll">
+                Every product goes through a minimum six-month development cycle. We work directly with mills in Portugal, Japan, and Italy — the same suppliers that supply luxury houses — at a price point that doesn't require a trust fund.
+              </p>
+            </div>
+          </div>
+          <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-md);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center" class="animate-on-scroll">
+            <div style="text-align:center;padding:var(--sp-8)">
+              <div style="font-family:var(--font-display);font-size:var(--text-7xl);font-weight:var(--weight-bold);color:var(--clr-surface-3);letter-spacing:-0.05em;line-height:1">DG</div>
+              <div style="font-size:var(--text-xs);letter-spacing:var(--tracking-widest);text-transform:uppercase;color:var(--clr-text-muted);margin-top:var(--sp-4)">Studio</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Values ─────────────────────────────────────────────── -->
+    <section class="section section--sm" style="background:var(--clr-surface);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border)">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--sp-12)">
+          <p class="section-eyebrow animate-on-scroll">What we stand for</p>
+          <h2 class="heading-xl animate-on-scroll">Four pillars</h2>
+        </div>
+
+        <div class="about-values">
+          <div class="value-card animate-on-scroll">
+            <div class="value-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="value-card__title">Uncompromised Quality</div>
+            <p class="value-card__text">We source from the same mills as heritage brands. No shortcuts on fabric weight, stitching, or hardware. Ever.</p>
+          </div>
+
+          <div class="value-card animate-on-scroll">
+            <div class="value-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 8v4l3 3"/>
+              </svg>
+            </div>
+            <div class="value-card__title">Timeless Design</div>
+            <p class="value-card__text">No seasonal gimmicks. Silhouettes designed to be relevant five years from now — not five months.</p>
+          </div>
+
+          <div class="value-card animate-on-scroll">
+            <div class="value-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>
+              </svg>
+            </div>
+            <div class="value-card__title">Accessible Luxury</div>
+            <p class="value-card__text">Premium doesn't have to mean exclusive. We work directly with manufacturers to keep margins honest.</p>
+          </div>
+
+          <div class="value-card animate-on-scroll">
+            <div class="value-card__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+                <path d="M3 6h18M3 12h18M3 18h18"/>
+              </svg>
+            </div>
+            <div class="value-card__title">Ethical Production</div>
+            <p class="value-card__text">Every partner is audited for fair wages and conditions. We visit every factory — no exceptions, no blind eyes.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Process ────────────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div style="text-align:center;margin-bottom:var(--sp-12)">
+          <p class="section-eyebrow animate-on-scroll">How we build</p>
+          <h2 class="heading-xl animate-on-scroll">The DG process</h2>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-6)">
+          ${[
+            { num: '01', title: 'Concept', text: 'Every piece starts from a real wardrobe need — not a trend board.' },
+            { num: '02', title: 'Material', text: 'We sample from 8–12 mills per product before committing to a fabric.' },
+            { num: '03', title: 'Prototype', text: 'Three to six weartest rounds before final approval. Fit is non-negotiable.' },
+            { num: '04', title: 'Production', text: 'Small batches. Direct relationships. No overproduction.' },
+          ].map(s => `
+            <div class="animate-on-scroll" style="text-align:center;padding:var(--sp-6)">
+              <div style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:var(--weight-bold);color:var(--clr-accent-dim);margin-bottom:var(--sp-4)">${s.num}</div>
+              <div style="font-weight:var(--weight-semibold);margin-bottom:var(--sp-3)">${s.title}</div>
+              <p style="font-size:var(--text-sm);color:var(--clr-text-secondary);line-height:var(--leading-relaxed)">${s.text}</p>
+            </div>
+          `).join('')}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── CTA ────────────────────────────────────────────────── -->
+    <section style="background:var(--clr-surface);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border);padding-block:var(--sp-20)">
+      <div class="container" style="text-align:center">
+        <h2 class="heading-xl animate-on-scroll" style="margin-bottom:var(--sp-5)">Ready to shop?</h2>
+        <p style="color:var(--clr-text-secondary);margin-bottom:var(--sp-8);max-width:480px;margin-inline:auto" class="animate-on-scroll">Explore the full collection — 19 styles across tops, bottoms, outerwear, and accessories.</p>
+        <a href="shop.html" class="btn btn-primary btn--lg animate-on-scroll">Shop the Collection</a>
+      </div>
+    </section>
+
+    <!-- ── Newsletter ─────────────────────────────────────────── -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <h2 class="newsletter__title">The DG Edit</h2>
+          <p class="newsletter__subtitle">New drops, restocks, and studio notes — directly to your inbox. No spam. Unsubscribe anytime.</p>
+          <form class="newsletter__form" id="newsletterForm" novalidate>
+            <input type="email" class="newsletter__input" placeholder="your@email.com" id="newsletterEmail" required>
+            <button type="submit" class="btn btn-accent">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      DG.ui.initNav();
+      DG.ui.renderFooter();
+      DG.ui.initScrollAnimations();
+
+      document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail')?.value;
+        if (email && email.includes('@')) {
+          DG.ui.toast('You\'re in!', 'Welcome to the DG edit.', 'success');
+          document.getElementById('newsletterEmail').value = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

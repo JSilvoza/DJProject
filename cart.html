@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Your DG Studio shopping cart.">
+  <title>Cart — DG Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="header__logo">DG</a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="shop.html" class="header__nav-link">Shop</a></li>
+          <li><a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a></li>
+          <li><a href="shop.html?filter=sale" class="header__nav-link">Sale</a></li>
+          <li><a href="about.html" class="header__nav-link">About</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="cart.html" class="header__icon-btn header__cart-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="header__cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <a href="shop.html" class="header__nav-link">Shop</a>
+    <a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a>
+    <a href="shop.html?filter=sale" class="header__nav-link">Sale</a>
+    <a href="about.html" class="header__nav-link">About</a>
+    <a href="cart.html" class="header__nav-link" style="margin-top:var(--sp-4)">Cart</a>
+  </div>
+
+  <main class="cart-page">
+    <div class="container">
+      <div class="cart-header">
+        <h1 class="heading-xl" id="cartTitle">Your Cart</h1>
+      </div>
+
+      <div id="cartEmpty" style="display:none" class="cart-empty">
+        <div class="cart-empty__icon">
+          <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+        </div>
+        <h2 class="cart-empty__title">Your cart is empty</h2>
+        <p class="cart-empty__sub">You haven't added anything yet. Start exploring.</p>
+        <a href="shop.html" class="btn btn-primary btn--lg">Shop now</a>
+      </div>
+
+      <div class="cart-layout" id="cartLayout">
+        <!-- Cart items -->
+        <div>
+          <div class="cart-items" id="cartItems"></div>
+        </div>
+
+        <!-- Order Summary -->
+        <aside>
+          <div class="order-summary">
+            <div class="order-summary__title">Order Summary</div>
+
+            <div class="promo-form">
+              <input type="text" id="promoInput" placeholder="Gift card or promo code">
+              <button class="btn btn-outline btn--sm" id="applyPromoBtn">Apply</button>
+            </div>
+
+            <div id="promoMessage" style="display:none;font-size:var(--text-xs);color:var(--clr-success);margin-bottom:var(--sp-4)"></div>
+
+            <div class="order-summary__row">
+              <span>Subtotal</span>
+              <span id="summarySubtotal">—</span>
+            </div>
+            <div class="order-summary__row" id="discountRow" style="display:none;color:var(--clr-success)">
+              <span>Discount</span>
+              <span id="summaryDiscount">—</span>
+            </div>
+            <div class="order-summary__row">
+              <span>Shipping</span>
+              <span id="summaryShipping">—</span>
+            </div>
+
+            <div class="order-summary__total">
+              <span>Total</span>
+              <span id="summaryTotal">—</span>
+            </div>
+
+            <a href="checkout.html" class="btn btn-primary btn--full btn--lg" id="checkoutBtn">
+              Proceed to Checkout
+            </a>
+
+            <p style="font-size:var(--text-xs);color:var(--clr-text-muted);text-align:center;margin-top:var(--sp-4)">
+              Tax calculated at checkout. Secure SSL encryption.
+            </p>
+
+            <div style="margin-top:var(--sp-5);padding-top:var(--sp-5);border-top:1px solid var(--clr-border)">
+              <div style="display:flex;flex-direction:column;gap:var(--sp-2)">
+                <div style="display:flex;align-items:center;gap:var(--sp-2);font-size:var(--text-xs);color:var(--clr-text-secondary)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="color:var(--clr-accent)"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                  Secure checkout
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--sp-2);font-size:var(--text-xs);color:var(--clr-text-secondary)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--clr-accent)"><polyline points="23 4 23 10 17 10"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10"/></svg>
+                  Free 30-day returns
+                </div>
+                <div style="display:flex;align-items:center;gap:var(--sp-2);font-size:var(--text-xs);color:var(--clr-text-secondary)">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="color:var(--clr-accent)"><rect x="1" y="3" width="22" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  Free shipping over $150
+                </div>
+              </div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      DG.ui.initNav();
+      DG.ui.renderFooter();
+
+      let appliedPromo = null;
+
+      function renderCart() {
+        const items    = DG.cart.getItems();
+        const cartLayout = document.getElementById('cartLayout');
+        const cartEmpty  = document.getElementById('cartEmpty');
+        const cartTitle  = document.getElementById('cartTitle');
+
+        if (items.length === 0) {
+          if (cartLayout) cartLayout.style.display = 'none';
+          if (cartEmpty)  cartEmpty.style.display  = 'block';
+          if (cartTitle)  cartTitle.textContent = 'Your Cart';
+          return;
+        }
+
+        if (cartLayout) cartLayout.style.display = '';
+        if (cartEmpty)  cartEmpty.style.display  = 'none';
+
+        const count = DG.cart.getCount();
+        if (cartTitle) cartTitle.textContent = `Your Cart (${count})`;
+
+        const itemsEl = document.getElementById('cartItems');
+        if (itemsEl) {
+          itemsEl.innerHTML = items.map(item => {
+            const product = DG.getProductById(item.productId);
+            return `
+              <div class="cart-item" data-item-id="${item.id}">
+                <a href="product.html?slug=${product?.slug || ''}" class="cart-item__img-wrap">
+                  <img src="${item.image}" alt="${item.name}" class="cart-item__img" loading="lazy">
+                </a>
+                <div class="cart-item__info">
+                  <a href="product.html?slug=${product?.slug || ''}" class="cart-item__name">${item.name}</a>
+                  <div class="cart-item__meta">
+                    <span>${item.size}</span>
+                    <span>·</span>
+                    <span>${item.color}</span>
+                  </div>
+                  <div class="cart-item__price">${DG.formatPrice(item.price)}</div>
+                </div>
+                <div class="cart-item__actions">
+                  <div class="qty-control">
+                    <button class="qty-btn" data-action="decrease" data-item-id="${item.id}" aria-label="Decrease quantity">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                    <span class="qty-value">${item.quantity}</span>
+                    <button class="qty-btn" data-action="increase" data-item-id="${item.id}" aria-label="Increase quantity">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                    </button>
+                  </div>
+                  <button class="cart-item__remove" data-item-id="${item.id}">Remove</button>
+                </div>
+              </div>
+            `;
+          }).join('');
+
+          // Bind qty controls
+          itemsEl.querySelectorAll('[data-action]').forEach(btn => {
+            btn.addEventListener('click', () => {
+              const id     = btn.dataset.itemId;
+              const action = btn.dataset.action;
+              const item   = items.find(i => i.id === id);
+              if (!item) return;
+              if (action === 'increase') {
+                DG.cart.updateQuantity(id, item.quantity + 1);
+              } else {
+                DG.cart.updateQuantity(id, item.quantity - 1);
+              }
+              renderCart();
+            });
+          });
+
+          // Bind remove buttons
+          itemsEl.querySelectorAll('.cart-item__remove').forEach(btn => {
+            btn.addEventListener('click', () => {
+              DG.cart.removeItem(btn.dataset.itemId);
+              DG.ui.toast('Removed', 'Item removed from cart.', 'info');
+              renderCart();
+            });
+          });
+        }
+
+        renderSummary();
+      }
+
+      function renderSummary() {
+        const subtotal = DG.cart.getSubtotal();
+        const shipping = DG.cart.getShipping();
+        const discount = appliedPromo ? appliedPromo.discount : 0;
+        const total    = subtotal + shipping - discount;
+
+        const fmt = DG.formatPrice;
+        document.getElementById('summarySubtotal').textContent = fmt(subtotal);
+        document.getElementById('summaryShipping').textContent = shipping === 0 ? 'Free' : fmt(shipping);
+        document.getElementById('summaryTotal').textContent    = fmt(total);
+
+        const discountRow = document.getElementById('discountRow');
+        const discountEl  = document.getElementById('summaryDiscount');
+        if (discount > 0 && discountRow && discountEl) {
+          discountRow.style.display = '';
+          discountEl.textContent = `−${fmt(discount)}`;
+        } else if (discountRow) {
+          discountRow.style.display = 'none';
+        }
+      }
+
+      // Promo code
+      document.getElementById('applyPromoBtn')?.addEventListener('click', () => {
+        const code = document.getElementById('promoInput')?.value?.trim();
+        if (!code) return;
+        const promo = DG.cart.applyPromo(code);
+        const msgEl = document.getElementById('promoMessage');
+        if (promo) {
+          appliedPromo = promo;
+          if (msgEl) {
+            msgEl.style.display = '';
+            msgEl.textContent = `✓ "${promo.code}" applied — saving ${DG.formatPrice(promo.discount)}`;
+          }
+          document.getElementById('promoInput').value = '';
+          renderSummary();
+          DG.ui.toast('Promo applied!', `${promo.rate * 100}% off`, 'success');
+        } else {
+          DG.ui.toast('Invalid code', 'That promo code isn\'t valid.', 'error');
+        }
+      });
+
+      renderCart();
+    });
+  </script>
+</body>
+</html>

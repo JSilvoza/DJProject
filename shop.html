@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Shop the full DG Studio collection — tops, bottoms, outerwear, and accessories.">
+  <title>Shop — DG Studio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    .shipping-methods { display: flex; flex-direction: column; gap: var(--sp-2); }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+      <a href="index.html" class="header__logo">DG</a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="shop.html" class="header__nav-link">Shop</a></li>
+          <li><a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a></li>
+          <li><a href="shop.html?filter=sale" class="header__nav-link">Sale</a></li>
+          <li><a href="about.html" class="header__nav-link">About</a></li>
+        </ul>
+      </nav>
+      <div class="header__actions">
+        <a href="cart.html" class="header__icon-btn header__cart-btn" aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="header__cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="nav-overlay" id="navOverlay">
+    <a href="shop.html" class="header__nav-link">Shop</a>
+    <a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a>
+    <a href="shop.html?filter=sale" class="header__nav-link">Sale</a>
+    <a href="about.html" class="header__nav-link">About</a>
+    <a href="cart.html" class="header__nav-link" style="margin-top:var(--sp-4)">Cart</a>
+  </div>
+
+  <main>
+    <div class="container shop-layout">
+
+      <!-- ── Filter Sidebar ────────────────────────────────── -->
+      <aside class="filter-sidebar" id="filterSidebar" aria-label="Product filters">
+
+        <!-- Category -->
+        <div class="filter-group">
+          <div class="filter-group__title">
+            <span>Category</span>
+            <span class="filter-group__toggle">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </span>
+          </div>
+          <div class="filter-group__options">
+            <label class="filter-option" data-filter-category="tops">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Tops <span style="margin-left:auto;font-size:var(--text-xs);color:var(--clr-text-muted)">6</span>
+            </label>
+            <label class="filter-option" data-filter-category="bottoms">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Bottoms <span style="margin-left:auto;font-size:var(--text-xs);color:var(--clr-text-muted)">4</span>
+            </label>
+            <label class="filter-option" data-filter-category="outerwear">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Outerwear <span style="margin-left:auto;font-size:var(--text-xs);color:var(--clr-text-muted)">4</span>
+            </label>
+            <label class="filter-option" data-filter-category="accessories">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Accessories <span style="margin-left:auto;font-size:var(--text-xs);color:var(--clr-text-muted)">5</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Size -->
+        <div class="filter-group">
+          <div class="filter-group__title">
+            <span>Size</span>
+            <span class="filter-group__toggle">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </span>
+          </div>
+          <div class="size-filters">
+            <button class="size-filter-btn" data-filter-size="XS">XS</button>
+            <button class="size-filter-btn" data-filter-size="S">S</button>
+            <button class="size-filter-btn" data-filter-size="M">M</button>
+            <button class="size-filter-btn" data-filter-size="L">L</button>
+            <button class="size-filter-btn" data-filter-size="XL">XL</button>
+            <button class="size-filter-btn" data-filter-size="XXL">XXL</button>
+          </div>
+        </div>
+
+        <!-- Price -->
+        <div class="filter-group">
+          <div class="filter-group__title">
+            <span>Price</span>
+            <span class="filter-group__toggle">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </span>
+          </div>
+          <div class="price-range">
+            <div class="price-range__inputs">
+              <input type="number" class="price-range__input" id="priceMin" placeholder="$0" min="0">
+              <span class="price-range__sep">–</span>
+              <input type="number" class="price-range__input" id="priceMax" placeholder="$500" max="1000">
+            </div>
+            <button class="btn btn-outline btn--sm" id="applyPrice" style="width:100%">Apply</button>
+          </div>
+        </div>
+
+        <!-- Special -->
+        <div class="filter-group">
+          <div class="filter-group__title">
+            <span>Availability</span>
+            <span class="filter-group__toggle">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="18 15 12 9 6 15"/></svg>
+            </span>
+          </div>
+          <div class="filter-group__options">
+            <label class="filter-option" data-filter-special="new">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              New Arrivals
+            </label>
+            <label class="filter-option" data-filter-special="sale">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              On Sale
+            </label>
+            <label class="filter-option" data-filter-special="bestseller">
+              <span class="filter-option__check">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+              </span>
+              Bestsellers
+            </label>
+          </div>
+        </div>
+
+        <button class="btn btn-ghost btn--sm" id="clearAllFilters" style="display:none;width:100%;margin-top:var(--sp-2)">
+          Clear all filters
+        </button>
+      </aside>
+
+      <!-- ── Shop Main ──────────────────────────────────────── -->
+      <div class="shop-main">
+        <div class="shop-bar">
+          <div style="display:flex;align-items:center;gap:var(--sp-3)">
+            <button class="filter-toggle-btn" id="filterToggle">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="20" y2="12"/><line x1="12" y1="18" x2="20" y2="18"/></svg>
+              Filter
+            </button>
+            <span class="shop-bar__count" id="productCount">Loading…</span>
+          </div>
+
+          <div class="shop-bar__right">
+            <div class="shop-bar__sort">
+              <span style="color:var(--clr-text-muted)">Sort:</span>
+              <select class="sort-select" id="sortSelect" aria-label="Sort products">
+                <option value="featured">Featured</option>
+                <option value="newest">Newest</option>
+                <option value="bestseller">Bestselling</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="rating">Top Rated</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Active filter tags -->
+        <div class="active-filters" id="activeTags"></div>
+
+        <!-- Product grid -->
+        <div class="product-grid" id="productGrid">
+          <!-- Rendered by shop.js -->
+          <div style="grid-column:1/-1;padding:var(--sp-12) 0;text-align:center;color:var(--clr-text-muted)">
+            Loading products…
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script src="assets/js/shop.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      DG.ui.initNav();
+      DG.ui.renderFooter();
+    });
+  </script>
+</body>
+</html>

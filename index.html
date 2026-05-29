@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DG Studio — Contemporary clothing built on the principle that quality and restraint are not opposites.">
+  <title>DG Studio — Contemporary Clothing</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/main.css">
+
+  <style>
+    .checkout-summary__items { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .checkout-success {
+      position: fixed; inset: 0; background: var(--clr-bg);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      z-index: 9999; text-align: center; padding: var(--sp-8);
+      animation: fadeIn 0.6s ease both;
+    }
+    .checkout-success__icon { font-size: 64px; margin-bottom: var(--sp-6); }
+    .checkout-success__title { font-family: var(--font-display); font-size: var(--text-3xl); margin-bottom: var(--sp-4); }
+    .checkout-success__sub { color: var(--clr-text-secondary); margin-bottom: var(--sp-8); }
+  </style>
+</head>
+<body>
+
+  <!-- ── Header ──────────────────────────────────────────────── -->
+  <header class="header" id="header">
+    <div class="header__inner container">
+      <button class="header__menu-btn" id="menuBtn" aria-label="Open navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+
+      <a href="index.html" class="header__logo">DG</a>
+
+      <nav class="header__nav" aria-label="Main navigation">
+        <ul class="header__nav-list">
+          <li><a href="shop.html" class="header__nav-link">Shop</a></li>
+          <li><a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a></li>
+          <li><a href="shop.html?filter=sale" class="header__nav-link">Sale</a></li>
+          <li><a href="about.html" class="header__nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <a href="cart.html" class="header__icon-btn header__cart-btn" aria-label="Shopping cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 01-8 0"/>
+          </svg>
+          <span class="header__cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <div class="nav-overlay" id="navOverlay" aria-hidden="true">
+    <a href="shop.html" class="header__nav-link">Shop</a>
+    <a href="shop.html?filter=new" class="header__nav-link">New Arrivals</a>
+    <a href="shop.html?filter=sale" class="header__nav-link">Sale</a>
+    <a href="about.html" class="header__nav-link">About</a>
+    <a href="cart.html" class="header__nav-link" style="margin-top:var(--sp-4)">Cart</a>
+  </div>
+
+  <main>
+    <!-- ── Hero ──────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Hero">
+      <div class="hero__bg" aria-hidden="true"></div>
+      <div class="hero__bg-text" aria-hidden="true">DG</div>
+
+      <div class="hero__content container">
+        <p class="hero__eyebrow">SS26 Collection</p>
+        <h1 class="hero__title">Wear the<br><em>Void.</em></h1>
+        <p class="hero__subtitle">Contemporary clothing built on the principle that quality and restraint are not opposites.</p>
+        <div class="hero__actions">
+          <a href="shop.html" class="btn btn-primary btn--lg">Shop Now</a>
+          <a href="shop.html?filter=new" class="btn btn-outline btn--lg">New Arrivals</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span>Scroll</span>
+        <svg width="12" height="16" viewBox="0 0 12 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+          <path d="M6 3v14M1 13l5 6 5-6"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ── New Arrivals ──────────────────────────────────────── -->
+    <section class="section" id="newArrivals">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-eyebrow">Just dropped</p>
+            <h2 class="heading-lg">New Arrivals</h2>
+          </div>
+          <a href="shop.html?filter=new" class="btn btn-ghost">View all →</a>
+        </div>
+
+        <div class="product-grid--4 product-grid" id="newArrivalsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Categories ────────────────────────────────────────── -->
+    <section class="section section--sm" style="background:var(--clr-surface);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border)">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-eyebrow">Browse by</p>
+            <h2 class="heading-lg">Collections</h2>
+          </div>
+        </div>
+        <div class="categories-grid" id="categoriesGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Manifesto ─────────────────────────────────────────── -->
+    <section class="manifesto">
+      <div class="container">
+        <div class="manifesto__inner">
+          <blockquote class="manifesto__quote">
+            "The most durable clothes are the ones you actually want to wear."
+          </blockquote>
+          <p class="manifesto__attribution">DG Studio — Founded 2022</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Bestsellers ───────────────────────────────────────── -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <p class="section-eyebrow">Community favourites</p>
+            <h2 class="heading-lg">Bestsellers</h2>
+          </div>
+          <a href="shop.html?filter=bestseller" class="btn btn-ghost">View all →</a>
+        </div>
+
+        <div class="product-grid--4 product-grid" id="bestsellersGrid"></div>
+      </div>
+    </section>
+
+    <!-- ── Brand story strip ─────────────────────────────────── -->
+    <section style="background:var(--clr-surface);border-top:1px solid var(--clr-border);border-bottom:1px solid var(--clr-border);padding-block:var(--sp-16)">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-16);align-items:center">
+          <div>
+            <p class="section-eyebrow animate-on-scroll">Our story</p>
+            <h2 class="heading-xl animate-on-scroll" style="margin-bottom:var(--sp-5)">Built for longevity,<br>not the algorithm.</h2>
+            <p style="color:var(--clr-text-secondary);line-height:var(--leading-relaxed);margin-bottom:var(--sp-6);font-size:var(--text-base)" class="animate-on-scroll">
+              DG Studio was founded in 2022 with a single conviction: clothing should outlast the trend cycle. Every piece is engineered for wear frequency, not photograph frequency.
+            </p>
+            <a href="about.html" class="btn btn-outline animate-on-scroll">Read the story</a>
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)">
+            <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-md);padding:var(--sp-6);text-align:center" class="animate-on-scroll">
+              <div style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:var(--weight-bold);color:var(--clr-accent)">19</div>
+              <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--clr-text-secondary);margin-top:var(--sp-2)">Styles</div>
+            </div>
+            <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-md);padding:var(--sp-6);text-align:center" class="animate-on-scroll">
+              <div style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:var(--weight-bold);color:var(--clr-accent)">4</div>
+              <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--clr-text-secondary);margin-top:var(--sp-2)">Countries of origin</div>
+            </div>
+            <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-md);padding:var(--sp-6);text-align:center" class="animate-on-scroll">
+              <div style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:var(--weight-bold);color:var(--clr-accent)">100%</div>
+              <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--clr-text-secondary);margin-top:var(--sp-2)">Natural fibers</div>
+            </div>
+            <div style="background:var(--clr-surface-2);border:1px solid var(--clr-border);border-radius:var(--radius-md);padding:var(--sp-6);text-align:center" class="animate-on-scroll">
+              <div style="font-family:var(--font-display);font-size:var(--text-4xl);font-weight:var(--weight-bold);color:var(--clr-accent)">4.8</div>
+              <div style="font-size:var(--text-xs);text-transform:uppercase;letter-spacing:var(--tracking-wider);color:var(--clr-text-secondary);margin-top:var(--sp-2)">Avg. rating</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Newsletter ─────────────────────────────────────────── -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter__inner">
+          <h2 class="newsletter__title">The DG Edit</h2>
+          <p class="newsletter__subtitle">New drops, restocks, and studio notes — directly to your inbox. No spam. Unsubscribe anytime.</p>
+          <form class="newsletter__form" id="newsletterForm" novalidate>
+            <input
+              type="email"
+              class="newsletter__input"
+              placeholder="your@email.com"
+              aria-label="Email address"
+              id="newsletterEmail"
+              required
+            >
+            <button type="submit" class="btn btn-accent">Subscribe</button>
+          </form>
+          <p style="font-size:var(--text-xs);color:var(--clr-text-muted);margin-top:var(--sp-4)">By subscribing you agree to our Privacy Policy.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ─────────────────────────────────────────────── -->
+  <footer class="footer" id="footer"></footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/cart.js"></script>
+  <script src="assets/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      DG.ui.initNav();
+      DG.ui.renderFooter();
+      DG.ui.initScrollAnimations();
+
+      /* New Arrivals */
+      const newGrid = document.getElementById('newArrivalsGrid');
+      if (newGrid) {
+        const newProds = DG.products.filter(p => p.isNew).slice(0, 4);
+        newGrid.innerHTML = newProds.map(p => DG.ui.renderProductCard(p)).join('');
+        DG.ui.bindQuickAdd(newGrid);
+      }
+
+      /* Categories */
+      const catGrid = document.getElementById('categoriesGrid');
+      if (catGrid) {
+        catGrid.innerHTML = DG.CATEGORIES.map(cat => `
+          <a href="shop.html?category=${cat.slug}" class="category-card">
+            <div class="category-card__bg" style="background:${cat.bg}"></div>
+            <div class="category-card__overlay"></div>
+            <div class="category-card__content">
+              <div class="category-card__name">${cat.label}</div>
+              <div class="category-card__count">${cat.count} styles</div>
+            </div>
+          </a>
+        `).join('');
+      }
+
+      /* Bestsellers */
+      const bestGrid = document.getElementById('bestsellersGrid');
+      if (bestGrid) {
+        const bests = DG.products.filter(p => p.isBestseller).slice(0, 4);
+        bestGrid.innerHTML = bests.map(p => DG.ui.renderProductCard(p)).join('');
+        DG.ui.bindQuickAdd(bestGrid);
+      }
+
+      /* Newsletter */
+      document.getElementById('newsletterForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('newsletterEmail')?.value;
+        if (email && email.includes('@')) {
+          DG.ui.toast('You\'re in!', 'Welcome to the DG edit.', 'success');
+          document.getElementById('newsletterEmail').value = '';
+        } else {
+          DG.ui.toast('Invalid email', 'Please enter a valid email address.', 'error');
+        }
+      });
+
+      /* Order success banner */
+      if (new URLSearchParams(window.location.search).get('order') === 'success') {
+        const el = document.createElement('div');
+        el.className = 'checkout-success';
+        el.innerHTML = `
+          <div class="checkout-success__icon">✓</div>
+          <h1 class="checkout-success__title">Order placed!</h1>
+          <p class="checkout-success__sub">Thank you for your purchase. You'll receive a confirmation email shortly.</p>
+          <a href="shop.html" class="btn btn-primary btn--lg">Continue shopping</a>
+        `;
+        document.body.appendChild(el);
+        el.addEventListener('click', () => {
+          el.remove();
+          history.replaceState(null,'','/');
+        });
+        setTimeout(() => el.remove(), 5000);
+      }
+    });
+  </script>
+</body>
+</html>
